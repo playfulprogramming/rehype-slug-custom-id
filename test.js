@@ -7,7 +7,9 @@ test('rehypeSlug', (t) => {
 
   rehype()
     .data('settings', {fragment: true})
-    .use(rehypeSlug)
+    .use(rehypeSlug, {
+      enableCustomId: true
+    })
     .process(
       [
         '<section>',
@@ -16,6 +18,7 @@ test('rehypeSlug', (t) => {
         '  <h3>consectetur &amp; adipisicing</h3>',
         '  <h4>elit</h4>',
         '  <h5>elit</h5>',
+        '  <h2>Test {#testing}</h2>',
         '  <p>sed</p>',
         '</section>'
       ].join('\n'),
@@ -31,6 +34,7 @@ test('rehypeSlug', (t) => {
             '  <h3 id="consectetur--adipisicing">consectetur &#x26; adipisicing</h3>',
             '  <h4 id="elit">elit</h4>',
             '  <h5 id="elit-1">elit</h5>',
+            '  <h2 id="testing">Test</h2>',
             '  <p>sed</p>',
             '</section>'
           ].join('\n'),
