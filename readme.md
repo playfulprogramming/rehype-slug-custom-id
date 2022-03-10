@@ -109,13 +109,13 @@ Always be wary with user input and use [`rehype-sanitize`][sanitize].
 
 [coverage]: https://codecov.io/github/unicorn-utterances/rehype-slug-custom-id
 
-[downloads-badge]: https://img.shields.io/npm/dm/rehype-slug.svg
+[downloads-badge]: https://img.shields.io/npm/dm/rehype-slug-custom-id.svg
 
 [downloads]: https://www.npmjs.com/package/rehype-slug-custom-id
 
 [size-badge]: https://img.shields.io/bundlephobia/minzip/rehype-slug-custom-id.svg
 
-[size]: https://bundlephobia.com/result?p=rehype-slug
+[size]: https://bundlephobia.com/result?p=rehype-slug-custom-id
 
 [npm]: https://docs.npmjs.com/cli/install
 
