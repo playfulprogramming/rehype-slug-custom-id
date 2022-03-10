@@ -1,7 +1,7 @@
 {
-  "name": "rehype-slug",
-  "version": "5.0.0",
-  "description": "rehype plugin to add `id` attributes to headings",
+  "name": "rehype-slug-custom-id",
+  "version": "1.0.0",
+  "description": "plugin to add `id` attributes to headings similar to gatsby-remark-autolink-headers ",
   "license": "MIT",
   "keywords": [
     "unified",
@@ -13,16 +13,8 @@
     "slug",
     "id"
   ],
-  "repository": "rehypejs/rehype-slug",
-  "bugs": "https://github.com/rehypejs/rehype-slug/issues",
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/unified"
-  },
-  "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
-  "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
-  ],
+  "repository": "unicorn-utterances/rehype-slug-custom-id",
+  "bugs": "https://github.com/unicorn-utterances/rehype-slug-custom-id/issues",
   "sideEffects": false,
   "type": "module",
   "types": "index.d.ts",

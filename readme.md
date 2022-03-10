@@ -1,14 +1,11 @@
-# rehype-slug
+# rehype-slug-custom-id
 
 [![Build][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
 [![Downloads][downloads-badge]][downloads]
 [![Size][size-badge]][size]
-[![Sponsors][sponsors-badge]][collective]
-[![Backers][backers-badge]][collective]
-[![Chat][chat-badge]][chat]
 
-[**rehype**][rehype] plugin to add `id`s to headings.
+[**rehype**][rehype] plugin to add `id`s to headings with the option for custom IDs.
 
 ## Install
 
@@ -18,7 +15,7 @@ Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
 [npm][]:
 
 ```sh
-npm install rehype-slug
+npm install rehype-slug-custom-id
 ```
 
 ## Use
@@ -31,6 +28,7 @@ Say we have the following file, `fragment.html`:
 <h3>consectetur &amp; adipisicing</h3>
 <h4>elit</h4>
 <h5>elit</h5>
+<h6>Custom ID Should Be Here {#custom-id}</h6>
 ```
 
 And our script, `example.js`, looks as follows:
@@ -59,18 +57,28 @@ Now, running `node example` yields:
 <h3 id="consectetur--adipisicing">consectetur &#x26; adipisicing</h3>
 <h4 id="elit">elit</h4>
 <h5 id="elit-1">elit</h5>
+<h6 id="custom-id">Custom ID Should Be Here</h6>
 ```
 
 ## API
 
-This package exports no identifiers.
 The default export is `rehypeSlug`.
 
 ### `unified().use(rehypeSlug)`
 
 Add `id` properties to h1-h6 headings that don’t already have one.
 
-Uses [**github-slugger**][ghslug] to create GitHub style `id`s.
+Uses [**github-slugger**][ghslug] to create GitHub style `id`s, or a custom ID if supplied like so:
+
+```html
+<h1>ID {#custom-id-here}</h1>
+```
+
+We support the following options for the plugin:
+
+- `enableCustomId`: `Boolean`. Enable custom header IDs with {#id} (optional)
+- `maintainCase`: `Boolean`. Maintains the case for markdown header (optional)
+- `removeAccents`: `Boolean`. Remove accents from generated headings IDs (optional)
 
 ## Security
 
@@ -84,64 +92,34 @@ Always be wary with user input and use [`rehype-sanitize`][sanitize].
 
 ## Related
 
-*   [`remark-slug`](https://github.com/wooorm/remark-slug)
+* [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
+  — Add slugs to headings in html
+* [`remark-slug`](https://github.com/wooorm/remark-slug)
     — Add slugs to headings in markdown
-
-## Contribute
-
-See [`contributing.md`][contributing] in [`rehypejs/.github`][health] for ways
-to get started.
-See [`support.md`][support] for ways to get help.
-
-This project has a [code of conduct][coc].
-By interacting with this repository, organization, or community you agree to
-abide by its terms.
-
-## License
-
-[MIT][license] © [Titus Wormer][author]
+* [`gatsby-remark-autolink-headers`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-autolink-headers)
+    — Add slugs to headings in markdown for Gatsby
 
 <!-- Definitions -->
 
-[build-badge]: https://github.com/rehypejs/rehype-slug/workflows/main/badge.svg
+[build-badge]: https://github.com/unicorn-utterances/rehype-slug-custom-id/workflows/main/badge.svg
 
-[build]: https://github.com/rehypejs/rehype-slug/actions
+[build]: https://github.com/unicorn-utterances/rehype-slug-custom-id/actions
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/rehypejs/rehype-slug.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/unicorn-utterances/rehype-slug-custom-id.svg
 
-[coverage]: https://codecov.io/github/rehypejs/rehype-slug
+[coverage]: https://codecov.io/github/unicorn-utterances/rehype-slug-custom-id
 
 [downloads-badge]: https://img.shields.io/npm/dm/rehype-slug.svg
 
-[downloads]: https://www.npmjs.com/package/rehype-slug
+[downloads]: https://www.npmjs.com/package/rehype-slug-custom-id
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/rehype-slug.svg
+[size-badge]: https://img.shields.io/bundlephobia/minzip/rehype-slug-custom-id.svg
 
 [size]: https://bundlephobia.com/result?p=rehype-slug
 
-[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
-
-[backers-badge]: https://opencollective.com/unified/backers/badge.svg
-
-[collective]: https://opencollective.com/unified
-
-[chat-badge]: https://img.shields.io/badge/chat-discussions-success.svg
-
-[chat]: https://github.com/rehypejs/rehype/discussions
-
 [npm]: https://docs.npmjs.com/cli/install
 
-[health]: https://github.com/rehypejs/.github
-
-[contributing]: https://github.com/rehypejs/.github/blob/HEAD/contributing.md
-
-[support]: https://github.com/rehypejs/.github/blob/HEAD/support.md
-
-[coc]: https://github.com/rehypejs/.github/blob/HEAD/code-of-conduct.md
-
 [license]: license
-
-[author]: https://wooorm.com
 
 [rehype]: https://github.com/rehypejs/rehype
 
