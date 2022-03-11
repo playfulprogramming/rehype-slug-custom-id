@@ -44,42 +44,26 @@ test('rehypeSlug', (t) => {
     .use(rehypeSlug, {
       enableCustomId: true
     })
-    .process(
-      [
-        '<h2>Test {#testing}</h2>',
-      ].join('\n'),
-      (error, file) => {
-        t.equal(
-          String(file),
-          [
-            '<h2 id="testing">Test</h2>'
-          ].join('\n'),
-          'should match with custom ID'
-        )
-      }
-    )
+    .process(['<h2>Test {#testing}</h2>'].join('\n'), (error, file) => {
+      t.equal(
+        String(file),
+        ['<h2 id="testing">Test</h2>'].join('\n'),
+        'should match with custom ID'
+      )
+    })
 
   rehype()
     .data('settings', {fragment: true})
     .use(rehypeSlug, {
       maintainCase: true
     })
-    .process(
-      [
-        '<h1>Test</h1>',
-        '<h2>hello</h2>',
-      ].join('\n'),
-      (error, file) => {
-        t.equal(
-          String(file),
-          [
-            '<h1 id="Test">Test</h1>',
-            '<h2 id="hello">hello</h2>',
-          ].join('\n'),
-          'should maintain casing'
-        )
-      }
-    )
+    .process(['<h1>Test</h1>', '<h2>hello</h2>'].join('\n'), (error, file) => {
+      t.equal(
+        String(file),
+        ['<h1 id="Test">Test</h1>', '<h2 id="hello">hello</h2>'].join('\n'),
+        'should maintain casing'
+      )
+    })
 
   rehype()
     .data('settings', {fragment: true})
@@ -90,7 +74,7 @@ test('rehypeSlug', (t) => {
       [
         '<h1>Héading One</h1>',
         '<h2>Héading Two</h2>',
-        '<h3>Héading Three</h3>',
+        '<h3>Héading Three</h3>'
       ].join('\n'),
       (error, file) => {
         t.equal(
@@ -98,7 +82,7 @@ test('rehypeSlug', (t) => {
           [
             '<h1 id="heading-one">Héading One</h1>',
             '<h2 id="heading-two">Héading Two</h2>',
-            '<h3 id="heading-three">Héading Three</h3>',
+            '<h3 id="heading-three">Héading Three</h3>'
           ].join('\n'),
           'should remove accents'
         )
