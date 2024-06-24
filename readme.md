@@ -76,9 +76,9 @@ Uses [**github-slugger**][ghslug] to create GitHub style `id`s, or a custom ID i
 
 We support the following options for the plugin:
 
-*   `enableCustomId`: `Boolean`. Enable custom header IDs with {#id} (optional)
-*   `maintainCase`: `Boolean`. Maintains the case for markdown header (optional)
-*   `removeAccents`: `Boolean`. Remove accents from generated headings IDs (optional)
+* `enableCustomId`: `Boolean`. Enable custom header IDs with {#id} (optional)
+* `maintainCase`: `Boolean`. Maintains the case for markdown header (optional)
+* `removeAccents`: `Boolean`. Remove accents from generated headings IDs (optional)
 
 ## Security
 
@@ -92,12 +92,12 @@ Always be wary with user input and use [`rehype-sanitize`][sanitize].
 
 ## Related
 
-*   [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
-    — Add slugs to headings in html
-*   [`remark-slug`](https://github.com/wooorm/remark-slug)
-    — Add slugs to headings in markdown
-*   [`gatsby-remark-autolink-headers`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-autolink-headers)
-    — Add slugs to headings in markdown for Gatsby
+* [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
+  — Add slugs to headings in html
+* [`remark-slug`](https://github.com/wooorm/remark-slug)
+  — Add slugs to headings in markdown
+* [`gatsby-remark-autolink-headers`](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-autolink-headers)
+  — Add slugs to headings in markdown for Gatsby
 
 <!-- Definitions -->
 
