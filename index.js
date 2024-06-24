@@ -23,14 +23,14 @@ export const slugs = new Slugger()
  *   enableCustomId?: boolean,
  *   maintainCase?: boolean,
  *   removeAccents?: boolean
- * }} props
+ * }} properties
  */
-export function getHeaderNodeId(node, props = {}) {
+export function getHeaderNodeId(node, properties = {}) {
   const {
     enableCustomId = false,
     maintainCase = false,
     removeAccents = false
-  } = props
+  } = properties
 
   /**
    * @type {Node & HTMLElement}
@@ -70,19 +70,25 @@ export function getHeaderNodeId(node, props = {}) {
 /**
  * Plugin to add `id`s to headings.
  *
- * @type {import('unified').Plugin<[{
+ * @param {{
  *   enableCustomId?: boolean,
  *   maintainCase?: boolean,
  *   removeAccents?: boolean
- * }], Root>}
+ * }} properties
  */
-export default function rehypeSlug(props = {}) {
+export default function rehypeSlug(properties = {}) {
+  /**
+   * @param {Root} tree
+   *   Tree.
+   * @returns {undefined}
+   *   Nothing.
+   */
   return (tree) => {
     slugs.reset()
 
     visit(tree, 'element', (node) => {
       if (headingRank(node) && node.properties && !hasProperty(node, 'id')) {
-        const {id, isCustomId} = getHeaderNodeId(node, props)
+        const {id, isCustomId} = getHeaderNodeId(node, properties)
 
         if (isCustomId) node.children.pop()
         node.properties.id = id
